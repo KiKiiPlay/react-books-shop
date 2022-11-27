@@ -7,23 +7,12 @@ import Welcome from "./component/Welcome";
 
 function App() {
   return (
-    <>
+    <div>
       <MyNav subtitle="Strive-Shop" />
       <Welcome />
       <LatestRelease />
       <Myfooter />
-    </>
-
-    // <Container fluid className="px-0">
-    //   <Row className="d-flex">
-    //     <Col className="px-0">
-    //       <MyNav subtitle="Strive-Shop" />
-    //     </Col>
-    //     <Col className="px-0">
-    //       <Myfooter />
-    //     </Col>
-    //   </Row>
-    // </Container>
+    </div>
   );
 }
 
