@@ -1,34 +1,29 @@
-import { Container, Row, Col } from "react-bootstrap";
 import Book from "./Book";
 import books from "./horror.json";
+import { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
-const LatestRelease = () => (
-  <>
-    <Container>
-      <Row className="d-flex">
-        <Col>
-          <Book
-            cover={books[0].img}
-            title={books[0].title}
-            price={books[0].price}
-            category={books[0].category}
-          />
-          <Book />
-          <Book />
-        </Col>
-        <Col>
-          <Book />
-          <Book />
-          <Book />
-        </Col>
-        <Col>
-          <Book />
-          <Book />
-          <Book />
-        </Col>
-      </Row>
-    </Container>
-  </>
-);
+class LatestRelease extends Component {
+  render() {
+    return (
+      <>
+        <Container>
+          <Row sm={2} md={3} lg={4} className="d-flex justify-content-center">
+            {books.map((element) => (
+              <Col key={books.asin}>
+                <Book
+                  cover={element.img}
+                  title={element.title}
+                  price={element.price}
+                  category={element.category}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </>
+    );
+  }
+}
 
 export default LatestRelease;
