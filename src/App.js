@@ -12,6 +12,13 @@ class App extends Component {
   state = {
     bookID: "",
   };
+
+  changeSelectedMovieTitle = (newMovieTitle) => {
+    this.setState({
+      bookID: newMovieTitle,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -20,7 +27,10 @@ class App extends Component {
         <Container>
           <Row className="justify-content-between">
             <Col>
-              <LatestRelease selectedBookId={this.state.bookID} />
+              <LatestRelease
+                bookID={this.state.bookID}
+                changeSelectedMovieTitle={this.changeSelectedMovieTitle}
+              />
             </Col>
             <Col>
               <CommentArea />
