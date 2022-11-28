@@ -11,7 +11,11 @@ class LatestRelease extends Component {
           <Row sm={2} md={3} lg={4} className="d-flex justify-content-center">
             {books.map((element) => (
               <Col key={books.asin}>
-                <Card onClick={() => this.props.selectedBookId(element.asin)}>
+                <Card
+                  onChange={(e) =>
+                    this.props.changeSelectedMovieTitle(element.asin)
+                  }
+                >
                   <Book
                     cover={element.img}
                     title={element.title}
