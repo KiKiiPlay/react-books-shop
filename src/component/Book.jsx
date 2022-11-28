@@ -3,11 +3,11 @@ import "./component_css/cutText.css";
 
 const Book = ({ cover, title, price, category }) => (
   <>
-    <Card style={{ width: "18rem" }}>
+    <Card>
       <Card.Img
         variant="top"
         src={cover}
-        style={{ width: "100%", height: "500px" }}
+        style={{ width: "100%", height: "300px" }}
       />
       <Card.Body>
         <Card.Title className="textCut">{title}</Card.Title>
