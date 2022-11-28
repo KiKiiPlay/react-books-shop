@@ -12,7 +12,7 @@ class LatestRelease extends Component {
             {books.map((element) => (
               <Col key={books.asin}>
                 <Card
-                  onChange={(e) =>
+                  onClick={() =>
                     this.props.changeSelectedMovieTitle(element.asin)
                   }
                 >
