@@ -13,9 +13,10 @@ class App extends Component {
     bookID: "",
   };
 
-  changeSelectedMovieTitle = (newMovieTitle) => {
+  changeID = (itemToSelect) => {
     this.setState({
-      bookID: newMovieTitle,
+      bookID: itemToSelect,
+      commentsID: "",
     });
   };
 
@@ -29,7 +30,7 @@ class App extends Component {
             <Col>
               <LatestRelease
                 bookID={this.state.bookID}
-                changeSelectedMovieTitle={this.changeSelectedMovieTitle}
+                changeID={this.changeID}
               />
             </Col>
             <Col>
