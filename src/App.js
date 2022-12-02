@@ -16,7 +16,6 @@ class App extends Component {
   changeID = (itemToSelect) => {
     this.setState({
       bookID: itemToSelect,
-      commentsID: "",
     });
   };
 
@@ -34,7 +33,7 @@ class App extends Component {
               />
             </Col>
             <Col>
-              <CommentArea />
+              <CommentArea bookID={this.state.bookID} />
             </Col>
           </Row>
         </Container>
