@@ -6,23 +6,10 @@ class CommentArea extends Component {
   state = {
     comments: [],
   };
-  //     fetch("https://striveschool-api.herokuapp.com/api/comments/", {
-  // headers: {
-  // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzg0YzUwOGQ4MDNjMjAwMTVlY2VlMjIiLCJpYXQiOjE2Njk2NDU1NzYsImV4cCI6MTY3MDg1NTE3Nn0.Ud_AC9gnFJfUTtCD_pm2LgIsQw9PO56a4W_pjkdf9o4"
-  // }
-  // })
-
-  //   options = {
-  //     headers: {
-  //       Authorization:
-  //         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzg0YzUwOGQ4MDNjMjAwMTVlY2VlMjIiLCJpYXQiOjE2Njk2NDU1NzYsImV4cCI6MTY3MDg1NTE3Nn0.Ud_AC9gnFJfUTtCD_pm2LgIsQw9PO56a4W_pjkdf9o4",
-  //     },
-  //   };
-
   options = {
     headers: {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzg0YzUwOGQ4MDNjMjAwMTVlY2VlMjIiLCJpYXQiOjE2Njk2NDU1NzYsImV4cCI6MTY3MDg1NTE3Nn0.Ud_AC9gnFJfUTtCD_pm2LgIsQw9PO56a4W_pjkdf9o4",
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FlYzMxNWRlM2E0ODAwMTVlODQxNjkiLCJpYXQiOjE2NzIzOTc1ODksImV4cCI6MTY3MzYwNzE4OX0.wkLCkwi63yAjSRVU6pBIGsYkbUMCYY0e9EAXpEGNsl8",
     },
   };
 
@@ -51,18 +38,22 @@ class CommentArea extends Component {
   }
 
   render() {
-    console.log(this.props.bookID);
+    const neededComments = this.state.comments.filter(
+      (element) => element.elementId === this.props.bookID
+    );
+    console.log("niiiiigeers", this.props.bookID);
     return (
       <>
         <h2>Comments</h2>
         <Card>
           <Card.Body>
-            {this.state.comments.map((element) => (
+            {neededComments.map((element) => (
               <SingleComment
                 elementId={element.elementId}
                 rate={element.rate}
                 comment={element.comment}
                 author={element.author}
+                bookID={this.props.bookID}
               />
             ))}
           </Card.Body>

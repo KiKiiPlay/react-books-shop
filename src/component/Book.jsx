@@ -1,18 +1,17 @@
 import { Card, Button } from "react-bootstrap";
 import "./component_css/cutText.css";
 import { useState } from "react";
+import CommentArea from "./CommentArea";
 
-const Book = ({ cover, title, price, category }) => {
-  const [selected, setSelected] = useState(false);
+const Book = ({ cover, title, price, category, id }) => {
+  const [showComment, setShowComment] = useState(false);
 
+  const handleClick = () => {
+    setShowComment(!showComment);
+  };
   return (
     <>
-      <Card
-        onClick={() => setSelected(!this.state.selected)}
-        style={{
-          border: selected ? "3px red solid" : "none",
-        }}
-      >
+      <Card>
         <Card.Img
           variant="top"
           src={cover}
@@ -22,7 +21,10 @@ const Book = ({ cover, title, price, category }) => {
           <Card.Title className="textCut">{title}</Card.Title>
           <Card.Text>Category: {category}</Card.Text>
           <Card.Text>{price} $</Card.Text>
-          <Button variant="primary">BUY IT</Button>
+          <Button variant="primary" onClick={handleClick}>
+            BUY IT
+          </Button>
+          {showComment ? <CommentArea bookId={id} /> : <></>}
         </Card.Body>
       </Card>
     </>

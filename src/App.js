@@ -5,12 +5,12 @@ import MyNav from "./component/MyNav";
 import Myfooter from "./component/MyFooter";
 import Welcome from "./component/Welcome";
 import { Container, Row, Col } from "react-bootstrap";
-import CommentArea from "./component/CommentArea";
 import { Component } from "react";
 
 class App extends Component {
   state = {
     bookID: "",
+    pickedBook: false,
   };
 
   changeID = (itemToSelect) => {
@@ -18,6 +18,8 @@ class App extends Component {
       bookID: itemToSelect,
     });
   };
+
+  pickBook = () => {};
 
   render() {
     return (
@@ -31,9 +33,6 @@ class App extends Component {
                 bookID={this.state.bookID}
                 changeID={this.changeID}
               />
-            </Col>
-            <Col>
-              <CommentArea bookID={this.state.bookID} />
             </Col>
           </Row>
         </Container>

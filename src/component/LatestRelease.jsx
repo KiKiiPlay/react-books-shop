@@ -17,6 +17,8 @@ class LatestRelease extends Component {
                     title={element.title}
                     price={element.price}
                     category={element.category}
+                    id={element.asin}
+                    bookId={this.props.bookID}
                   />
                 </Card>
               </Col>
